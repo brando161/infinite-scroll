@@ -4,10 +4,15 @@ const loader = document.getElementById('loader');
 let photosArray = [];
 
 // Unsplash API
+const count = 30;
 const query = 'car';
-const count = 10;
 const apiKey = 'API_KEY_PLACEHOLDER';
 const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&query=${query}&count=${count}`;
+
+// Check if all images were loaded
+const imageLoaded = () => {
+    console.log('Image loaded');
+}
 
 // Helper Function to Set Attributes on DOM Elements
 const setAttributes = (element, attributes) => {
@@ -33,6 +38,8 @@ const displayPhotos = () => {
             alt: photo.alt_description,
             title: photo.alt_description
         });
+        // Check when each image is finished loading
+        img.addEventListener('load', imageLoaded);
         // Put <img> inside <a>, then put both inside image-container Element
         item.appendChild(img);
         imageContainer.appendChild(item);
