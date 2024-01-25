@@ -7,10 +7,11 @@ let totalImages = 0;
 let imagesLoaded = 0;
 
 // Unsplash API
-const count = 30;
+const initialImageCount = 5;
+let currentImageCount = initialImageCount;
 const query = 'car';
-const apiKey = 'API_KEY_PLACEHOLDER';
-const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&query=${query}&count=${count}`;
+const apiKey = 'vc0CnD4NPoV9EXji0jJmH6-BYQrnHPCgcctq7Ub89CE';
+let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&query=${query}&count=${initialImageCount}`;
 
 // Check if all images were loaded
 const imageLoaded = () => {
@@ -18,6 +19,9 @@ const imageLoaded = () => {
     if(imagesLoaded === totalImages) {
         ready = true;
         loader.hidden = true;
+        // Once loaded, the page will display 30 images at a time
+        currentImageCount = 30;
+        apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&query=${query}&count=${currentImageCount}`;
     }
 }
 
