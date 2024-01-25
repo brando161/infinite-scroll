@@ -10,7 +10,7 @@ let imagesLoaded = 0;
 const initialImageCount = 5;
 let currentImageCount = initialImageCount;
 const query = 'car';
-const apiKey = 'vc0CnD4NPoV9EXji0jJmH6-BYQrnHPCgcctq7Ub89CE';
+const apiKey = API_Key;
 let apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apiKey}&query=${query}&count=${initialImageCount}`;
 
 // Check if all images were loaded
